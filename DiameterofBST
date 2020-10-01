@@ -1,0 +1,15 @@
+int height(Node* root)
+{
+    if(root==NULL) return 0;
+    return 1+ max(height(root->left),height(root->right));
+}
+
+/* Computes the diameter of binary tree with given root.  */
+int diameter(Node* node) {
+    // Your code here
+    if(node==NULL) return 0;
+    int d1 = 1 + height(node->left) + height(node->right);
+    int d2 = diameter(node->left);
+    int d3 = diameter(node->right);
+    return max(d1,max(d2,d3));
+}
