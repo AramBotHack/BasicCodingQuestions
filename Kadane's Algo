@@ -1,0 +1,17 @@
+ll func(ll *arr,ll N)
+{
+    if(N==0) return 0;
+    if(N==1) return arr[0];
+    ll *sumarr=new ll[N];
+    sumarr[0]=arr[0]>0?arr[0]:0;
+    ll maxi=arr[0];
+    ll maxi2=arr[0];
+    int flag=0;
+    for(ll i=1;i<N;i++)
+    {
+        if(sumarr[i-1]+arr[i]>0) {sumarr[i]=(sumarr[i-1]+arr[i]); flag=1;}
+        maxi=max(maxi,sumarr[i]);
+        maxi2=max(maxi2,arr[i]);
+    }
+    return flag==1?maxi:maxi2;
+}
